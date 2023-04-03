@@ -73,9 +73,9 @@ button {
 .info {
   display: flex;
   text-align: center;
-  font-size: 12px;
+  font-size: 9px;
   justify-content: space-between;
-  padding: 10px 15px;
+  padding: 4px;
 
 }
 
@@ -88,3 +88,6 @@ button {
 }
 
 
+.info-item{
+gap: 10px
+}

@@ -12,7 +12,7 @@ const loadMoreBtnEl = document.querySelector('.load-more');
 const newApiServise = new NewApiServise();
 
 
-let lightbox = new SimpleLightbox('.photo-card a', {
+let lightbox = new SimpleLightbox('.gallery a', {
   captions: true,
   captionsData: 'alt',
   captionDelay: 250,
@@ -60,6 +60,7 @@ async function handleSearchFormSubmit(event) {
         Notiflix.Notify.success(`Hooray! We found ${totalHits} images.`);
         galleryEl.insertAdjacentHTML('beforeend', cardTmpSearch(hits));
         lightbox.refresh();
+        scroll()
       }
       // removeIsHiddenBtn()
 
@@ -89,6 +90,7 @@ async function handleLoadMoreBtnClick() {
   }
   galleryEl.insertAdjacentHTML('beforeend', cardTmpSearch(hits));
   lightbox.refresh();
+  scroll()
 
 }
 
@@ -96,6 +98,20 @@ async function handleLoadMoreBtnClick() {
 function clearList() {
   galleryEl.innerHTML = '';
 }
+
+function scroll (){
+  const { height: cardHeight } = document
+  .querySelector(".gallery")
+  .firstElementChild.getBoundingClientRect();
+
+window.scrollBy({
+  top: cardHeight * 2,
+  behavior: "smooth",
+});
+}
+
+
+
 
 loadMoreBtnEl.addEventListener('click', handleLoadMoreBtnClick);
 formEl.addEventListener('submit', handleSearchFormSubmit);
