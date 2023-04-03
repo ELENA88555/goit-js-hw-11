@@ -1,23 +1,23 @@
-export default function cardTmpSearch (images) {
-  return images
+export default function cardTmpSearch (arr) {
+  return arr
     .map(({ webformatURL, largeImageURL, likes, views, comments, downloads, tags }) => {
       return `
         <div class="photo-card">
-          <a href="${webformatURL}">
-            <img src="${largeImageURL}" alt="${tags}" loading="lazy" />
+          <a href="${largeImageURL}">
+            <img src="${webformatURL}" alt="${tags}" loading="lazy" />
           </a>
           <div class="info">
             <p class="info-item">
-              <b>Likes</b> ${likes}
+              <b>Likes ${likes}</b> 
             </p>
             <p class="info-item">
-              <b>Views</b> ${views}
+              <b>Views ${views}</b> 
             </p>
             <p class="info-item">
-              <b>Comments</b> ${comments}
+              <b>Comments  ${comments}</b>
             </p>
             <p class="info-item">
-              <b>Downloads</b> ${downloads}
+              <b>Downloads  ${downloads}</b>
             </p>
           </div>
         </div>

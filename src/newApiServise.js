@@ -3,12 +3,12 @@ import axios from 'axios';
 const BASE_URL = 'https://pixabay.com/api';
 const API_KEY = '25261319-41493d7d09d351884ef55fa82';
 
-export class NewApiService {
+export default class NewApiService {
   constructor() {
     this.searchQuery = '';
     this.perPage = 40;
-    this.page = 1;
-  }
+    this.page = 1
+  };
 
   async fetchFotos() {
     try {
@@ -18,7 +18,7 @@ export class NewApiService {
         image_type: 'photo',
         orientation: 'horizontal',
         safesearch: true,
-        page: this.pageAmount,
+        page: this.page,
         per_page: this.perPage,
       });
       const url = `${BASE_URL}/?${params}`;
